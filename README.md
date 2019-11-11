@@ -1,1 +1,1 @@
-# datacoco-secretmanager
+# datacoco-secretsmanager
