@@ -177,7 +177,7 @@ class SecretsManager:
         if environment:
             cfg_store = f"{cfg_store}/{environment}"
 
-        print(f"Getting full configuration mapping for {cfg_store}")
+        print(f"Getting full configuration mapping for cfg_store: {cfg_store}")
         config_lookup = self.get_secret(cfg_store)
         config = {}
         if config_lookup:
