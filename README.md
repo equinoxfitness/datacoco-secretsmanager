@@ -5,7 +5,7 @@ datacoco-secretsmanager provides basic interaction with the Amazon Web Service (
 ## Installation
 datacoco-secretsmanager requires Python 3.6+
 ```
-python3 -m venv venvtest
+python3 -m venv venv
 source venv/bin/activate
 python -m pip install datacoco_secretsmanager
 ```
@@ -125,4 +125,4 @@ sm.get_config(
 
 Contributions to datacoco_secretsmanager are welcome!
 
-Please reference guidelines to help with setting up your development environment here.
+Please reference guidelines to help with setting up your development environment [here](https://github.com/equinoxfitness/datacoco-secretsmanager/blob/master/CONTRIBUTING.md).
