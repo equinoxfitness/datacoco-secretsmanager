@@ -43,13 +43,13 @@ Store a secret in AWS Secrets manager:
 <AWS-secret-name-for-connection>
 ```
 ```
-| Key    	 | Value		|
+| Key        | Value	    |
 | ---------- | -------------|
-| <db-name>  | <db-name>	|
-| <user> 	 | <user-name>	|
-| <host> 	 | <host>		|
-| <port> 	 | <port-value>	|
-| ...	 	 | ...			|
+| <db-name>  | <db-name>    |
+| <user>     | <user-name>  |
+| <host>     | <host>       |
+| <port>     | <port-value> |
+| ...        | ...          |
 ```
 
 To fetch a single secret, use:
@@ -76,7 +76,7 @@ Additionally, if working in organization with multiple teams using AWS Secrets M
 ```
 Store key/values for your `cfg_store` with the following:
 ```
-| Key    	  			| Value 							  |
+| Key                   | Value 			                  |
 | --------------------- | ----------------------------------- |
 | <db-connection1-name> | <AWS-secret-name-for-db-connection1>|
 | <db-connection2-name> | <AWS-secret-name-for-db-connection2>|
@@ -89,26 +89,26 @@ For each Secret value in your cfg_store, store the full credentials in an additi
 <AWS-secret-name-for-db-connection1>
 ```
 ```
-| Key    	 | Value		|
+| Key        | Value	    |
 | ---------- | -------------|
-| <db-name1> | <db-name1>	|
-| <user> 	 | <user-name>	|
-| <host> 	 | <host>		|
-| <port> 	 | <port-value>	|
-| ...	 	 | ...			|
+| <db-name1> | <db-name1>   |
+| <user>     | <user-name>  |
+| <host>     | <host>       |
+| <port>     | <port-value> |
+| ...        | ...          |
 ```
 **AWS Secret name**
 ```
 <AWS-secret-name-for-db-connection2>
 ```
 ```
-| Key    	 | Value		|
+| Key        | Value	    |
 | ---------- | -------------|
-| <db-name1> | <db-name2>	|
-| <user> 	 | <user-name>	|
-| <host> 	 | <host>		|
-| <port> 	 | <port-value>	|
-| ...	 	 | ...			|
+| <db-name2> | <db-name2>   |
+| <user>     | <user-name>  |
+| <host>     | <host>       |
+| <port>     | <port-value> |
+| ...        | ...          |
 ```
 To fetch secrets for a full project/cfg store, use:
 ```
@@ -124,4 +124,5 @@ sm.get_config(
 ### Contributing
 
 Contributions to datacoco_secretsmanager are welcome!
+
 Please reference guidelines to help with setting up your development environment here.
