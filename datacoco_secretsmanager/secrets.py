@@ -45,10 +45,11 @@ class SecretsManager:
                     session_kwargs,
                 )
             else:
-                warnings.warn(
-                    "If role based permissions used in AWS, aws_role_arn arg must be provided\
-                         for access to secrets' resource(s)."
+                role_based_warning = (
+                    "If role based permissions used in AWS, aws_role_arn "
+                    "arg must be provided for access to secrets' resource(s)."
                 )
+                warnings.warn(role_based_warning)
                 session_kwargs["aws_access_key_id"] = aws_access_key_id
                 session_kwargs["aws_secret_access_key"] = aws_secret_access_key
 
@@ -153,17 +154,30 @@ class SecretsManager:
                 )
                 return decoded_binary_secret
 
-    def get_config(self, project_name, team="data"):
+    def get_config(self, project_name, team_name=None):
         """Fetch full config and credentials for all systems/connections at
         repo/project level.
 
-        :param project_name: repo/project name for config-store resource name
-        :param team: team name that is required at beginning of resource name
-        """
-        environment = os.getenv("environment", "test")
+        Based on whether a team_name and/or environent variable is assigned,
+        the following naming is used to find an AWS Secrets resource name:
+        {team_name}/{project_name}/{environment}
 
-        cfg_store = f"{team}/{project_name}/{environment}"
-        print(f"Getting full configuration for {cfg_store}")
+        :param project_name: repo/project name for config-store resource name
+        :param team_name: if team assigned, prefixed to project_name:
+            {team_name}/{project_name}
+        """
+        # If environment assigned, post-fixed to project_name arg
+        # {project_name}/{environment}
+        environment = os.getenv("ENVIRONMENT", None)
+
+        cfg_store = f"{project_name}"
+
+        if team_name:
+            cfg_store = f"{team_name}/{cfg_store}"
+        if environment:
+            cfg_store = f"{cfg_store}/{environment}"
+
+        print(f"Getting full configuration mapping for {cfg_store}")
         config_lookup = self.get_secret(cfg_store)
         config = {}
         if config_lookup:
