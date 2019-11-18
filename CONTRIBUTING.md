@@ -27,7 +27,7 @@ Run [tox](https://tox.readthedocs.io/en/latest/) to validate tests are working
 tox
 ```
 
-To run tox for multiple Python 3 versions, you can use  [pyenv](https://github.com/pyenv/pyenv) to install and manage different Python versions locally
+To run tox for multiple Python 3 versions, you can use [pyenv](https://github.com/pyenv/pyenv) to install and manage different Python versions locally.
 
 If you see an error indicating a missing Python version, ie:
 `SKIPPED: InterpreterNotFound: python3.7`

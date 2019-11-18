@@ -15,13 +15,13 @@ python -m pip install datacoco_secretsmanager
 If you have AWS credentials stored in the default `~/.aws/credentials`, instantiate a SecretsManager class using:
 
 ```
-from datacoco_secretsmanager.secrets import SecretsManager
+from datacoco_secretsmanager import SecretsManager
 
 sm = SecretsManager()
 ```
 Otherwise, pass in AWS authentication keys:
 ```
-from datacoco_secretsmanager.secrets import SecretsManager
+from datacoco_secretsmanager import SecretsManager
 
 sm = SecretsManager(
 

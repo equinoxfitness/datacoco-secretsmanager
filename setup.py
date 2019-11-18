@@ -7,12 +7,10 @@ from setuptools import setup, find_packages
 
 from datacoco_secretsmanager import VERSION
 
-requires = [
-    "boto3==1.10.14"
-]
+requires = ["boto3==1.10.14"]
 
 setup(
-    name="datacoco_secretsmanager",
+    name="datacoco-secretsmanager",
     version=VERSION,
     author="Equinox Fitness",
     description="AWS boto3 Secrets Manager wrapper",
@@ -24,10 +22,10 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     install_requires=requires,
     classifiers=[
-        "Development Status :: 1 - Production/Stable",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Natural Language :: English",
-        "Programming Language :: Python",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3.6",
     ],
 )
