@@ -24,11 +24,11 @@ pipeline{
 
                 echo "coverage"
            
-                sh "pip install -r requirements.txt"
-                sh "pip install coverage codacy-coverage"
-                sh "coverage run -m unittest tests/test_secrets.py"
-                sh "coverage xml -i"
-                sh "python-codacy-coverage -r coverage.xml"
+                // sh "pip install -r requirements.txt"
+                // sh "pip install coverage codacy-coverage"
+                // sh "coverage run -m unittest tests/test_secrets.py"
+                // sh "coverage xml -i"
+                // sh "python-codacy-coverage -r coverage.xml"
             }
             post {
                 always {
