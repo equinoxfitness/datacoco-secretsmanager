@@ -3,19 +3,27 @@
 """
 setuptools install script.
 """
+import os
+import re
 from setuptools import setup, find_packages
-
-from datacoco_secretsmanager import VERSION
 
 requires = ["boto3==1.10.14"]
 
+
+def get_version():
+    version_file = open(
+        os.path.join("datacoco_secretsmanager", "__version__.py")
+    )
+    version_contents = version_file.read()
+    return re.search('__version__ = "(.*?)"', version_contents).group(1)
+
+
 setup(
     name="datacoco-secretsmanager",
-    version=VERSION,
+    version=get_version(),
     author="Equinox Fitness",
     description="AWS boto3 Secrets Manager wrapper",
-    long_description=open("README.md").read(),
-    long_description_content_type="text/markdown",
+    long_description=open("README.rst").read(),
     url="https://github.com/equinoxfitness/datacoco-secretsmanager",
     scripts=[],
     license="MIT",
