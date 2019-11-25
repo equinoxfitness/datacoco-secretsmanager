@@ -164,4 +164,4 @@ Contributions to datacoco\_secretsmanager are welcome!
 
 Please reference guidelines to help with setting up your development
 environment
-`here <https://github.com/equinoxfitness/datacoco-secretsmanager/blob/master/CONTRIBUTING.md>`__.
+`here <https://github.com/equinoxfitness/datacoco-secretsmanager/blob/master/CONTRIBUTING.rst>`__.
