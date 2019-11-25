@@ -24,7 +24,8 @@ pipeline{
 
                 echo "coverage"
            
-                // sh "pip install -r requirements.txt"
+                sh "pip install -r requirements-dev.txt"
+                sh "black --check datacoco_secretsmanager tests"
                 // sh "pip install coverage codacy-coverage"
                 // sh "coverage run -m unittest tests/test_secrets.py"
                 // sh "coverage xml -i"
