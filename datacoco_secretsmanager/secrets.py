@@ -18,6 +18,7 @@ class SecretsManager:
     Wrapper on Amazon Web Services' boto3 Secrets Manager
     """
 
+    # pylint: disable=C0330
     def __init__(
         self,
         aws_access_key_id=None,
@@ -72,8 +73,8 @@ class SecretsManager:
             passing in access keys
         """
         print("Assuming role: {}".format(arn))
-        id = arn.split(":")[4]
-        session_name = "sm_assumed_role_session_{}".format(id)
+        arn_id = arn.split(":")[4]
+        session_name = "sm_assumed_role_session_{}".format(arn_id)
         sts_client = boto3.client(
             service_name="sts",
             aws_access_key_id=access_key_id,
@@ -99,6 +100,7 @@ class SecretsManager:
         """
         # In this sample we only handle the specific exceptions for the
         # 'GetSecretValue' API.
+        # pylint: disable=C0301
         # See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html # noqa
         # We rethrow the exception by default.
         print(f"Getting secret values for: {secret_name}")
