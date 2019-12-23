@@ -22,6 +22,7 @@ class TestSecretManager(unittest.TestCase):
             aws_secret_access_key="aws_secret",
             aws_role_arn="aws_arn:test:iam::xxxxxx:role/test",
         )
+
         self.assertEqual(sm.assume_role(), self.settings)
 
     @patch("datacoco_secretsmanager.secrets.SecretsManager.assume_role")
