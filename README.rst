@@ -7,7 +7,7 @@ Service (AWS) Secrets Manager service.
 Installation
 ------------
 
-datacoco-secretsmanager requires Python 3.6+
+**datacoco-secretsmanager requires Python 3.6+**
 
 ::
 
@@ -18,8 +18,12 @@ datacoco-secretsmanager requires Python 3.6+
 Quickstart
 ----------
 
+datacoco-secretsmanager utilizes the `boto3 <https://boto3.amazonaws.com/v1/documentation/api/latest/index.html>`_ library to interact with the AWS Secrets Manager service, requiring AWS credentials configuration. Lookup of credentials by boto3 is documented `here <https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html>`_.
+
+**Based on how you store your AWS credentials, you can use datacoco-secretsmanager in the following ways.**
+
 If you have AWS credentials stored in the default
-``~/.aws/credentials``, instantiate a SecretsManager class using:
+`~/.aws/credentials <https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html>`_, instantiate a SecretsManager class using:
 
 ::
 
@@ -27,7 +31,7 @@ If you have AWS credentials stored in the default
 
     sm = SecretsManager()
 
-Otherwise, pass in AWS authentication keys:
+You can also pass in AWS authentication keys directly:
 
 ::
 
@@ -42,6 +46,9 @@ Otherwise, pass in AWS authentication keys:
         aws_role_arn, # only required if you are using role based access
 
     )
+
+Otherwise, if you are running on an Amazon EC2 instance, and credentials are not passed in either way above, you can have boto3 load credentials from the instance metadata service.
+datacoco-secretsmanager will then assume the same IAM role as you specified when you launched your EC2 instance.
 
 One Secret
 ~~~~~~~~~~
@@ -90,8 +97,8 @@ module:
 
     <project-name>/<environment>
 
-(Note: If using environment, environment variable named ``ENVIRONMENT``
-should be stored.)
+Note: If using environment, environment variable named ``ENVIRONMENT``
+should be stored and assigned with the same environment name indicated in your AWS secret name.
 
 Additionally, if working in organization with multiple teams using AWS
 Secrets Manager, you can further denote secrets per team, by using
