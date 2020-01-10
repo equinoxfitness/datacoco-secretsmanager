@@ -71,7 +71,6 @@ class SecretsManager:
         :param aws_role_arn: for assuming role with secrets must be used if
             passing in access keys
         """
-        print("Assuming role: {}".format(arn))
         arn_id = arn.split(":")[4]
         session_name = "sm_assumed_role_session_{}".format(arn_id)
         sts_client = boto3.client(
@@ -102,7 +101,6 @@ class SecretsManager:
         # pylint: disable=C0301
         # See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html # noqa
         # We rethrow the exception by default.
-        print(f"Getting secret values for: {secret_name}")
         try:
             get_secret_value_response = self.client.get_secret_value(
                 SecretId=secret_name
