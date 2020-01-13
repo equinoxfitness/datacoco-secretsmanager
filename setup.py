@@ -22,7 +22,7 @@ setup(
     name="datacoco-secretsmanager",
     version=get_version(),
     author="Equinox Fitness",
-    description="AWS boto3 Secrets Manager wrapper",
+    description="Data common code for AWS Secrets Manager by Equinox",
     long_description=open("README.rst").read(),
     url="https://github.com/equinoxfitness/datacoco-secretsmanager",
     scripts=[],
