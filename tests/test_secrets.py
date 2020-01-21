@@ -11,6 +11,7 @@ class TestSecretManager(unittest.TestCase):
             "aws_access_key_id": "aws_key",
             "aws_secret_access_key": "aws_secret",
             "aws_session_token": "aws_arn_role",
+            "region_name": "us-east-1",
         }
 
     @patch("datacoco_secretsmanager.secrets.SecretsManager.assume_role")

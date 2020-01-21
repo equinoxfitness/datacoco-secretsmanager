@@ -26,31 +26,34 @@ pipeline{
            
                 sh "pip install -r requirements-dev.txt"
                 sh "black --check datacoco_secretsmanager tests"
-                // sh "pip install coverage codacy-coverage"
-                // sh "coverage run -m unittest tests/test_secrets.py"
-                // sh "coverage xml -i"
-                // sh "python-codacy-coverage -r coverage.xml"
+                sh "pip install coverage codacy-coverage"
+                sh "coverage run -m unittest tests/test_secrets.py"
+                sh "coverage xml -i"
+                sh "python-codacy-coverage -r coverage.xml"
             }
             post {
                 always {
-                    echo "plugin"
-                    // step([$class: 'CoberturaPublisher',
-                    //                autoUpdateHealth: false,
-                    //                autoUpdateStability: false,
-                    //                coberturaReportFile: 'coverage.xml',
-                    //                failNoReports: false,
-                    //                failUnhealthy: false,
-                    //                failUnstable: false,
-                    //                maxNumberOfBuilds: 10,
-                    //                onlyStable: false,
-                    //                sourceEncoding: 'ASCII',
-                    //                zoomCoverageChart: false])
+                    step([$class: 'CoberturaPublisher',
+                                   autoUpdateHealth: false,
+                                   autoUpdateStability: false,
+                                   coberturaReportFile: 'coverage.xml',
+                                   failNoReports: false,
+                                   failUnhealthy: false,
+                                   failUnstable: false,
+                                   maxNumberOfBuilds: 10,
+                                   onlyStable: false,
+                                   sourceEncoding: 'ASCII',
+                                   zoomCoverageChart: false])
                 }
-            }       
+            }
         }
-        stage('Deploy to Pypi') {   
+        stage('Deploy to Test Pypi Env') {
+            when {
+                anyOf {
+                    branch 'qa';
+                }
+            }
             steps {
-
                 withCredentials([[
                     $class: 'UsernamePasswordMultiBinding',
                     credentialsId: 'e9f73e25-ab88-4382-9018-dd0841cc327c',
@@ -60,7 +63,26 @@ pipeline{
                     sh "pip install twine"
                     sh "rm -rf dist"
                     sh "python setup.py sdist"
-                    // sh "twine upload --repository-url https://test.pypi.org/legacy/ --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
+                    sh "twine upload --repository-url https://test.pypi.org/legacy/ --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
+                }
+            }
+        }
+        stage('Deploy to Pypi') { 
+            when {
+                anyOf {
+                    branch 'master';
+                }
+            }  
+            steps {
+                withCredentials([[
+                    $class: 'UsernamePasswordMultiBinding',
+                    credentialsId: 'e9f73e25-ab88-4382-9018-dd0841cc327c',
+                    usernameVariable: 'USERNAME',
+                    passwordVariable: 'PASSWORD'
+                ]]) {
+                    sh "pip install twine"
+                    sh "rm -rf dist"
+                    sh "python setup.py sdist"
                     sh "twine upload --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
                 }
             }
