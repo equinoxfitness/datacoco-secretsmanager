@@ -1,7 +1,18 @@
 Contributing Guidelines
 =======================
 
-Thank you for contributing to datacoco\_secretsmanager!
+When contributing to this repository, please first discuss the change
+you wish to make via issue or email with the owners of this repository
+before making a change.
+
+Issues
+------
+
+First off, issues may arise when not ran inside a virtual environment.
+Therefore, make sure to follow the installation process before
+proceeding. Issues can be created
+`here <https://github.com/equinoxfitness/datacoco-secretsmanager/issues/new>`__ and
+please put the appropriate label.
 
 Local development setup
 -----------------------
@@ -44,3 +55,10 @@ If you see an error indicating a missing Python version, ie:
 -  Make available to your local directory: ``pyenv local 3.7.0``
 -  Run ``tox`` again
 
+Pull Request Process
+--------------------
+
+1. Ensure any install or build dependencies are removed before the end
+   of the layer when doing a build.
+
+2. Follow the pull request template provided.

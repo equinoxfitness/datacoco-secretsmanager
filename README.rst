@@ -1,6 +1,22 @@
 datacoco-secretsmanager
 =======================
 
+.. image:: https://badge.fury.io/py/datacoco-secretsmanager.svg
+    :target: https://badge.fury.io/py/datacoco-secretsmanager
+    :alt: PyPI Version
+
+.. image:: https://readthedocs.org/projects/datacoco-secretsmanager/badge/?version=latest
+    :target: https://datacoco-secretsmanager.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://api.codacy.com/project/badge/Grade/861b44dcbfdb42f4bcdabea51563ba65
+    :target: https://www.codacy.com/manual/equinoxfitness/datacoco-secretsmanager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-secretsmanager&amp;utm_campaign=Badge_Grade
+    :alt: Code Quality Grade
+
+.. image:: https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg
+    :target: https://github.com/equinoxfitness/datacoco-secretsmanager/blob/master/CODE_OF_CONDUCT.rst
+    :alt: Code of Conduct
+
 datacoco-secretsmanager provides basic interaction with the Amazon Web
 Service (AWS) Secrets Manager service.
 
@@ -163,6 +179,29 @@ To fetch secrets for a full project/cfg store, use:
         team_name='your-team-name',     # include only if you want to save as part of your cfg_store name
 
     )
+
+Development
+-----------
+
+Getting Started
+~~~~~~~~~~~~~~~
+
+It is recommended to use the steps below to set up a virtual environment for development:
+
+::
+
+    python3 -m venv <virtual env name>
+    source <virtual env name>/bin/activate
+    pip install -r requirements.txt
+
+Testing
+~~~~~~~
+
+::
+
+    pip install -r requirements-dev.txt
+
+To run the testing suite, simply run the command: ``tox`` or ``python -m unittest discover tests``
 
 Contributing
 ~~~~~~~~~~~~
