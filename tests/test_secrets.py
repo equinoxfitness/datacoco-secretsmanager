@@ -18,7 +18,7 @@ class TestSecretManager(unittest.TestCase):
     def test_assume_role(self, mock_assume_role):
         mock_assume_role.return_value = self.settings
 
-        sm = SecretsManager(
+        sm = SecretsManager(  # nosec
             aws_access_key_id="aws_key",
             aws_secret_access_key="aws_secret",
             aws_role_arn="aws_arn:test:iam::xxxxxx:role/test",
