@@ -24,7 +24,7 @@ class TestSecretManager(unittest.TestCase):
             aws_role_arn="aws_arn:test:iam::xxxxxx:role/test",
         )
 
-        self.assertEqual(sm.assume_role(), self.settings)
+        self.assertEqual(sm.assume_role(kwargs={}), self.settings)
 
     @patch("datacoco_secretsmanager.secrets.SecretsManager.assume_role")
     @patch("datacoco_secretsmanager.secrets.SecretsManager.get_secret")
