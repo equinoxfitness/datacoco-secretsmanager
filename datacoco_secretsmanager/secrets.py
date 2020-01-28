@@ -59,7 +59,8 @@ class SecretsManager:
         self.client = self.session.client(service_name="secretsmanager")
         print("Connected to Secrets Manager client")
 
-    def assume_role(self, access_key_id, secret_access_key, arn, kwargs):
+    @staticmethod
+    def assume_role(access_key_id, secret_access_key, arn, kwargs):
         """Assume role via boto3 for access to resources.
 
         To be used for directly passing in access keys.
