@@ -10,8 +10,12 @@ datacoco-secretsmanager
     :alt: Documentation Status
 
 .. image:: https://api.codacy.com/project/badge/Grade/861b44dcbfdb42f4bcdabea51563ba65
-    :target: https://www.codacy.com/manual/equinoxfitness/datacoco-secretsmanager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-secretsmanager&amp;utm_campaign=Badge_Grade
+    :target: https://www.codacy.com/gh/equinoxfitness/datacoco-secretsmanager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-secretsmanager&amp;utm_campaign=Badge_Grade
     :alt: Code Quality Grade
+
+.. image:: https://api.codacy.com/project/badge/Coverage/861b44dcbfdb42f4bcdabea51563ba65
+    :target: https://www.codacy.com/gh/equinoxfitness/datacoco-secretsmanager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-secretsmanager&amp;utm_campaign=Badge_Coverage
+    :alt: Coverage
 
 .. image:: https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg
     :target: https://github.com/equinoxfitness/datacoco-secretsmanager/blob/master/CODE_OF_CONDUCT.rst
